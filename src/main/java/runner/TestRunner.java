@@ -13,13 +13,13 @@ import org.junit.runner.RunWith;
         features = {"src/test/resources/features"},
         glue = {"stepDefinitions"},
         monochrome = false,
-        snippets = CucumberOptions.SnippetType.CAMELCASE,,
-        tags = "@PostVotesRequest"
+        snippets = CucumberOptions.SnippetType.CAMELCASE,
+        tags = "@Create_Products"
 )
 public class TestRunner {
     @BeforeClass
     public static void setUp() {
-        RestAssured.baseURI = "https://api.thecatapi.com";
+        RestAssured.baseURI = "https://fakestoreapi.com/";
         RestAssured.useRelaxedHTTPSValidation();
     }
 }

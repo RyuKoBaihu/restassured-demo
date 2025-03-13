@@ -6,27 +6,26 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import models.PostVotesRequest;
+import requests.CreateProductsImplements;
 
 import static io.restassured.RestAssured.given;
 
-public class PostVotesStepDefinitions {
+public class createProductsStepDefinitions {
 
     private Response response;
-    private PostVotesRequest postVotesRequest;
 
-    @Given("that I made a POST request on Votes")
-    public void givenThatIMadeAPostRequestOnVotes() {
+    @Given("that I made a POST request on products")
+    public void givenThatIMadeAPostRequestOnProducts() {
 
-        postVotesRequest = new PostVotesRequest("asf2", "my-user-1234", 1);
+        CreateProductsImplements createProductsImplements = new CreateProductsImplements();
         System.out.println("Request sent");
         response = given()
                 .contentType(ContentType.JSON)
-                .body(postVotesRequest)
+                .body(createProductsImplements)
                 .log().uri()
                 .log().body()
                 .when()
-                .post(Endpoints.VOTES.getPath())
+                .post(Endpoints.PRODUCTS.getPath())
                 .then()
                 .log().all()
                 .extract()
@@ -40,6 +39,6 @@ public class PostVotesStepDefinitions {
 
     @Then("it gives me the status code 200")
     public void thenItGivesMeTheStatusCode200() {
-        response.then().statusCode(401);
+        response.then().statusCode(200);
     }
 }

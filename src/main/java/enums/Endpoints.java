@@ -1,7 +1,7 @@
 package enums;
 
 public enum Endpoints {
-    VOTES("/v1/votes");
+    PRODUCTS("products");
 
     private final String path;
 
