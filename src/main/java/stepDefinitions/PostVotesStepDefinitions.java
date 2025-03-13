@@ -35,7 +35,7 @@ public class PostVotesStepDefinitions {
 
     @When("I use the right body request")
     public void whenIUseTheRightBodyRequest() {
-        // O contrato já foi passado na etapa Given
+        // Contract already in @Given step
     }
 
     @Then("it gives me the status code 200")
