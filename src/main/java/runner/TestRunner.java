@@ -10,12 +10,10 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        //dryRun = false,
         features = {"src/test/resources/features"},
         glue = {"stepDefinitions"},
         monochrome = false,
-        snippets = CucumberOptions.SnippetType.CAMELCASE,
-        //stepNotifications = true,
+        snippets = CucumberOptions.SnippetType.CAMELCASE,,
         tags = "@PostVotesRequest"
 )
 public class TestRunner {
