@@ -108,7 +108,6 @@
                     <systemPropertyVariables>
                         <!-- Adicionando o caminho do trustStore se necessário -->
                         <javax.net.ssl.trustStore>/etc/ssl/certs</javax.net.ssl.trustStore>
-                        <!--<javax.net.ssl.trustStorePassword>senhaDoTrustStore</javax.net.ssl.trustStorePassword-->
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
