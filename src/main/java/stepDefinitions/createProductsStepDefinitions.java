@@ -13,15 +13,30 @@ import static io.restassured.RestAssured.given;
 public class createProductsStepDefinitions {
 
     private Response response;
+    private CreateProductsImplements productRequest;
 
-    @Given("that I made a POST request on products")
-    public void givenThatIMadeAPostRequestOnProducts() {
+    @Given("that I prepare a POST request for a {string} scenario")
+    public void preparePostRequest(String scenarioType) {
+        switch (scenarioType) {
+            case "positive":
+                productRequest = CreateProductsImplements.positiveScenario();
+                break;
+            case "negative with invalid title":
+                productRequest = CreateProductsImplements.negativeScenarioInvalidTitle();
+                break;
+            case "negative with invalid price":
+                productRequest = CreateProductsImplements.negativeScenarioInvalidPrice();
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown scenario type: " + scenarioType);
+        }
+    }
 
-        CreateProductsImplements createProductsImplements = new CreateProductsImplements();
-        System.out.println("Request sent");
+    @When("I send the POST request to create a product")
+    public void sendPostRequest() {
         response = given()
                 .contentType(ContentType.JSON)
-                .body(createProductsImplements)
+                .body(productRequest)
                 .log().uri()
                 .log().body()
                 .when()

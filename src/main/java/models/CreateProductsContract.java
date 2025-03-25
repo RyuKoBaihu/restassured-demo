@@ -10,11 +10,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateProductsContract {
-    private String title;
-    private String price;
-    private String description;
-    private String image;
-    private String category;
+    private String title = "Default Title";
+    private String price = "10.0";
+    private String description = "Default Description";
+    private String image = "https://default-image.com";
+    private String category = "Default Category";
 }
 
 
