@@ -47,11 +47,6 @@ public class createProductsStepDefinitions {
                 .response();
     }
 
-    @When("I use the right body request")
-    public void whenIUseTheRightBodyRequest() {
-        // Contract already in @Given step
-    }
-
     @Then("it gives me the status code 200")
     public void thenItGivesMeTheStatusCode200() {
         response.then().statusCode(200);

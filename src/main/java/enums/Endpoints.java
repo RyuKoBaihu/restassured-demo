@@ -1,8 +1,8 @@
 package enums;
 
 public enum Endpoints {
-    PRODUCTS("products");
-
+    PRODUCTS("products"),
+    ORDER("order");
 
     private final String path;
 
